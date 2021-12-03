@@ -87,6 +87,16 @@ async function run() {
             res.json(result);
         })
 
+        // delete product Api
+
+        app.delete('/products/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: ObjectId(id) };
+            console.log(query);
+            const result = await productsCollection.deleteOne(query);
+            console.log(result);
+            res.json(result);
+        })
 
 
     } finally {
