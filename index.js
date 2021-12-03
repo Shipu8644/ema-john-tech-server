@@ -38,6 +38,7 @@ async function run() {
 
         //added a new product Api
         app.post('/products', async (req, res) => {
+            const key = req.body.key;
             const category = req.body.category;
             const price = req.body.price;
             const star = req.body.star;
@@ -50,6 +51,7 @@ async function run() {
             const encodedPic = picData.toString('base64');
             const imageBuffer = Buffer.from(encodedPic, 'base64');
             const product = {
+                key,
                 category,
                 price,
                 star,
