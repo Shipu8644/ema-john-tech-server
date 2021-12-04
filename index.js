@@ -1,16 +1,16 @@
-const express = require('express')
-const app = express()
-const cors = require('cors')
+const express = require('express');
+const app = express();
+const cors = require('cors');
 const ObjectId = require('mongodb').ObjectId;
-require('dotenv').config()
+require('dotenv').config();
 const fileUpload = require('express-fileupload');
 const { MongoClient } = require('mongodb');
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 5000;
 
 // middleWare
-app.use(cors())
-app.use(express.json())
-app.use(fileUpload())
+app.use(cors());
+app.use(express.json());
+app.use(fileUpload());
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.om5y9.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
